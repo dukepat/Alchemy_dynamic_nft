@@ -50,11 +50,10 @@ contract BullBear is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable, Keeper
     uint256 public s_requestId;
     address s_owner;
 
-
     Counters.Counter private _tokenIdCounter;
     uint public interval;
     uint public lastTimestamp;
-    AggregatorV3Interface public priceFeed;
+    AggregatorV3Interface public priceFeed; //0xECe365B379E1dD183B20fc5f022230C044d51404
     int256 public currentPrice;
     enum MarketTrend{ BULL, BEAR }
 
@@ -64,14 +63,14 @@ contract BullBear is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable, Keeper
     // NOTE: These connect to my IPFS Companion node.
     // You should upload the contents of the /ipfs folder to your own node for development.
     string[] bullUrisIpfs = [
-        "https://ipfs.filebase.io/ipfs/QmQrKA89esBaednLtS88xgy34XPWe3WdfgL61sD7LDtDjg?filename=gamer_bull.json",
-        "https://ipfs.filebase.io/ipfs/QmSwMQkcMUsgw7Bv9EWBje4JAnxYeUhhkuw6Z8NyTvqgsY?filename=party_bull.json",
-        "https://ipfs.filebase.io/ipfs/Qma4p8nm6ecrncP8jKdmkpAUsnukLUQ556z9aecNedgEux?filename=simple_bull.json"
+        "ipfs://QmQ2fMPEPTpXfjqmc1wvsrKtMKrjjJPas4Qcg6S21XUuFR",
+        "ipfs://Qmc1jFNSeYa8jpnZXvPnsUTbu8bLcfDEpzManHzFTJRG5q",
+        "ipfs://QmQJAJeaMwrhZrTua9rMFCP3hv2q8vtoAqExXUN5wwMfqo"
     ];
     string[] bearUrisIpfs = [
-        "https://ipfs.filebase.io/ipfs/QmTqtXfW7FnBu3BK193CJR2gpoCNEuvLPRf1ZpPbaaUJH9?filename=beanie_bear.json",
-        "https://ipfs.filebase.io/ipfs/QmcC5VCweRiX2hGos9vUVj2RuYW14RuDZF2c17GWZSyGfG?filename=coolio_bear.json",
-        "https://ipfs.filebase.io/ipfs/QmdiFWrT5wqzWav26LJS9Xr31ftZusJyJhd6f5M3x7yDgt?filename=simple_bear.json"
+        "ipfs://QmdGB7jQqHKLW8NKcSWmMVU5FSdHgjSRHpPsjg8HPv7Z8w",
+        "ipfs://QmXeyGS2CFfwB6HKC9tv1AxdhgXk4rSS9pbu8Mx7Cx2w7e",
+        "ipfs://Qmf4RgWAXhAhKy1BAUQpXs5Xmr4LMMwPSPGHfzc3DoPfUX"
     ];
 
     event TokensUpdated(string marketTrend);
